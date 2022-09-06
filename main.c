@@ -9,7 +9,7 @@ int execute(char **args, char **front);
  */
 void sig_handler(int sig)
 {
-	char *new_prompt = "\n$ ";
+	char *new_prompt = "\n:) ";
 
 	(void)sig;
 	signal(SIGINT, sig_handler);
