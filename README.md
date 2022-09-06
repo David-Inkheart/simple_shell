@@ -100,7 +100,8 @@ $ ./unixhell
 :) ^C
 :) ^C
 $
-eplacement :heavy_dollar_sign:
+```
+### Variable replacement :heavy_dollar_sign:
 
 **unixhell** interprets the `$` character for variable replacement.
 
