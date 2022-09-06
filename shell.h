@@ -137,5 +137,15 @@ void help_setenv(void);
 void help_unsetenv(void);
 void help_history(void);
 
+/* TOKENIZER */
+int token_len(char *str, char *delim);
+int count_tokens(char *str, char *delim);
+char **_strtok(char *line, char *delim);
+
 int proc_file_commands(char *file_path, int *exe_ret);
+int cant_open(char *file_path);
+
+/* LOCATE */
+char *fill_path_dir(char *path);
+list_t *get_path_dir(char *path);
 #endif /* _SHELL_H_ */
