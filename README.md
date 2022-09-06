@@ -79,9 +79,14 @@ $ echo "echo $PATH" | ./unixhell
 ```
 
 ### Command Execution :arrow_forward:
-After receiving a command, **shellby** tokenizes it into words using `" "` as a delimiter. The first word is considered the command and all remaining words are considered arguments to that command. **Shellby** then proceeds with the following actions:
+After receiving a command, **unixhell** tokenizes it into words using `" "` as a delimiter. The first word is considered the command and all remaining words are considered arguments to that command. **unixhell** then proceeds with the following actions:
 1. If the first character of the command is neither a slash (`\`) nor dot (`.`), the shell searches for it in the list of shell builtins. If there exists a builtin by that name, the builtin is invoked.
-2. If the first character of the command is none of a slash (`\`), dot (`.`), nor builtin, **shellby** searches each element of the **PATH** environmental variable for a directory containing an executable file by that name.
+2. If the first character of the command is none of a slash (`\`), dot (`.`), nor builtin, **unixhell** searches each element of the **PATH** environmental variable for a directory containing an executable file by that name.
+
+After receiving a command, **unixhell** tokenizes it into words using `" "` as a delimiter. The first word is considered the command and all remaining words are considered arguments to that command. **unixhell** then proceeds with the following actions:
+1. If the first character of the command is neither a slash (`\`) nor dot (`.`), the shell searches for it in the list of shell builtins. If there exists a builtin by that name, the builtin is invoked.
+2. If the first character of the command is none of a slash (`\`), dot (`.`), nor builtin, **unixhell** searches each element of the **PATH** environmental variable for a directory containing an executable file by that name.
+
 3. If the first character of the command is a slash (`\`) or dot (`.`) or either of the above searches was successful, the shell executes the named program with any remaining given arguments in a separate execution environment.
 
 ### Exit Status :wave:
@@ -100,7 +105,12 @@ $ ./unixhell
 :) ^C
 :) ^C
 $
+<<<<<<< HEAD
 eplacement :heavy_dollar_sign:
+=======
+```
+### Variable replacement :heavy_dollar_sign:
+>>>>>>> 2ec3c0f353c7dfc52414f87bbeaf8673e0363930
 
 **unixhell** interprets the `$` character for variable replacement.
 
