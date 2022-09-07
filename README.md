@@ -8,7 +8,7 @@ A simple UNIX command interpreter written as part of the low-level programming p
 
 ### How to run `unixhell` :runner:
 
-> - To run **unixhell**, compile all `.c` files in the repository and run the resulting executable:
+> - To run **unixhell**, run the executable `./compile.sh` (i.e a script to compile all the *.c files in the current working directory).
 
 ```
 gcc *.c -o unixhell
@@ -105,12 +105,8 @@ $ ./unixhell
 :) ^C
 :) ^C
 $
-<<<<<<< HEAD
-eplacement :heavy_dollar_sign:
-=======
 ```
 ### Variable replacement :heavy_dollar_sign:
->>>>>>> 2ec3c0f353c7dfc52414f87bbeaf8673e0363930
 
 **unixhell** interprets the `$` character for variable replacement.
 
