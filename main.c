@@ -13,7 +13,7 @@ void sig_handler(int sig)
 
 	(void)sig;
 	signal(SIGINT, sig_handler);
-	write(STDIN_FILENO, new_prompt, 3);
+	write(STDIN_FILENO, new_prompt, 4);
 }
 
 /**
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
-		write(STDOUT_FILENO, prompt, 2);
+		write(STDOUT_FILENO, prompt, 3);
 		ret = handle_args(exe_ret);
 		if (ret == END_OF_FILE || ret == EXIT)
 		{
