@@ -1,5 +1,10 @@
 #include "shell.h"
 
+char *_strchr(char *s, char c);
+int _strspn(char *s, char *accept);
+int _strcmp(char *s1, char *s2);
+int _strncmp(const char *s1, const char *s2, size_t n);
+
 /**
  * _strchr - Locates a character in a string.
  * @s: The string to be searched.
@@ -10,19 +15,14 @@
  */
 char *_strchr(char *s, char c)
 {
-	while (*s)
+	int index;
+
+	for (index = 0; s[index]; index++)
 	{
-		if (*s == c)
-		{
-			return (s);
-		}
-		s++;
+		if (s[index] == c)
+			return (s + index);
 	}
 
-	if (!c)
-	{
-		return (s);
-	}
 	return (NULL);
 }
 
@@ -55,28 +55,26 @@ int _strspn(char *s, char *accept)
 }
 
 /**
-* _strcmp - a function that compares two strings.
-* the function should work exactly like strcmp
-*
-* Compare S1 and S2, returning less than, equal to or
-* greater than zero if S1 is lexicographically less than,
-* equal to or greater than S2.
-*
-* @s1: first string set
-* @s2: string to be compared with
-*
-* Return: 0, if the s1 and s2 are equal;
-* a negative value if s1 is less than s2;
-* a positive value if s1 is greater than s2.
-*/
+ * _strcmp - Compares two strings.
+ * @s1: The first string to be compared.
+ * @s2: The second string to be compared.
+ *
+ * Return: Positive byte difference if s1 > s2
+ *         0 if s1 = s2
+ *         Negative byte difference if s1 < s2
+ */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && (*s1 == *s2))
+	while (*s1 && *s2 && *s1 == *s2)
 	{
 		s1++;
 		s2++;
 	}
-	return (*s1 - *s2);
+
+	if (*s1 != *s2)
+		return (*s1 - *s2);
+
+	return (0);
 }
 
 /**

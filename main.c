@@ -9,11 +9,11 @@ int execute(char **args, char **front);
  */
 void sig_handler(int sig)
 {
-	char *new_prompt = "\n:) ";
+	char *new_prompt = "\n$ ";
 
 	(void)sig;
 	signal(SIGINT, sig_handler);
-	write(STDIN_FILENO, new_prompt, 4);
+	write(STDIN_FILENO, new_prompt, 3);
 }
 
 /**
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 {
 	int ret = 0, retn;
 	int *exe_ret = &retn;
-	char *prompt = ":) ", *new_line = "\n";
+	char *prompt = "$ ", *new_line = "\n";
 
 	name = argv[0];
 	hist = 1;
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 
 	while (1)
 	{
-		write(STDOUT_FILENO, prompt, 3);
+		write(STDOUT_FILENO, prompt, 2);
 		ret = handle_args(exe_ret);
 		if (ret == END_OF_FILE || ret == EXIT)
 		{

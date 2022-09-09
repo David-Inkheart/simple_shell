@@ -1,5 +1,8 @@
 #include "shell.h"
 
+int cant_open(char *file_path);
+int proc_file_commands(char *file_path, int *exe_ret);
+
 /**
  * cant_open - If the file doesn't exist or lacks proper permissions, print
  * a cant open error.
@@ -59,14 +62,12 @@ int proc_file_commands(char *file_path, int *exe_ret)
 
 	hist = 0;
 	file = open(file_path, O_RDONLY);
-
 	if (file == -1)
 	{
 		*exe_ret = cant_open(file_path);
 		return (*exe_ret);
 	}
 	line = malloc(sizeof(char) * old_size);
-
 	if (!line)
 		return (-1);
 	do {

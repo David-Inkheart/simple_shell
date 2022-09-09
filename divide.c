@@ -1,36 +1,39 @@
 #include "shell.h"
 
+int token_len(char *str, char *delim);
+int count_tokens(char *str, char *delim);
+char **_strtok(char *line, char *delim);
+
 /**
-* token_len - Locates the delimiter index marking the end of the first token
-*		contained within a string.
-* @str: The string to be searched.
-* @delim: The delimiter character.
-*
-* Return: The index of the delimiter marking the end of the initial
-*		token pointed to by str.
-*/
+ * token_len - Locates the delimiter index marking the end
+ * of the first token contained within a string.
+ * @str: The string to be searched.
+ * @delim: The delimiter character.
+ *
+ * Return: The delimiter index marking the end of
+ *         the intitial token pointed to be str.
+ */
 int token_len(char *str, char *delim)
 {
-	int index, len;
-
-	index = 0;
-	len = 0;
+	int index = 0, len = 0;
 
 	while (*(str + index) && *(str + index) != *delim)
 	{
 		len++;
 		index++;
 	}
+
 	return (len);
 }
 
 /**
- * count_tokens - Counts the number of tokens in a String.
+ * count_tokens - Counts the number of delimited
+ *                words contained within a string.
  * @str: The string to be searched.
- * @delim: The delimiter character
+ * @delim: The delimiter character.
  *
  * Return: The number of words contained within str.
-*/
+ */
 int count_tokens(char *str, char *delim)
 {
 	int index, tokens = 0, len = 0;
