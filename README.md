@@ -11,7 +11,7 @@ A simple UNIX command interpreter written as part of the low-level programming p
 > - To run **unixhell**, run the executable `./compile.sh` (i.e a script to compile all the *.c files in the current working directory).
 
 ```
-gcc *.c -o unixhell
+./compile.sh
 ./unixhell
 ```
 
@@ -24,12 +24,12 @@ $ echo "echo 'hello'" | ./unixhell
 $
 ```
 
-If **unixhell** is invoked with standard input connected to a terminal, an *interactive* shell is opened. When executing interactively, **unixhell** displays the prompt `:)` when it is ready to read a command.
+If **unixhell** is invoked with standard input connected to a terminal, an *interactive* shell is opened. When executing interactively, **unixhell** displays the prompt `$` when it is ready to read a command.
 
 Example:
 ```
 $./unixhell
-:)
+$
 ```
 
 Alternatively, if command line arguments are supplied upon invocation, **unixhell** treats the first argument as a file from which to read commands. The supplied file should contain one command per line. **unixhell** runs each of the commands contained in the file in order before exiting.
@@ -102,8 +102,8 @@ While running in interactive mode, **unixhell** ignores the keyboard input `Ctrl
 User hits `Ctrl+d` in the third line.
 ```
 $ ./unixhell
-:) ^C
-:) ^C
+$ ^C
+$ ^C
 $
 ```
 ### Variable replacement :heavy_dollar_sign:
@@ -198,13 +198,13 @@ The operators `&&` and `||` have equal precedence, followed by `;`.
 Example:
 ```
 $ ./unixhell
-:) pwd
+$ pwd
 /home/vagrant/alx/simple_shell
-:) cd ../
-:) pwd
+$ cd ../
+$ pwd
 /home/vagrant/alx
-:) cd -
-:) pwd
+$ cd -
+$ pwd
 /home/vagrant/alx/simple_shell
 ```
 
@@ -218,8 +218,8 @@ $ ./unixhell
 Example:
 ```
 $ ./unixhell
-:) alias show=ls
-:) show
+$ alias show=ls
+$ show
 env.c	helpers.c	func.c	vim.h	create.md	super.c	link.c	add.c	test.c	lib.h
 ```
 
@@ -232,7 +232,7 @@ env.c	helpers.c	func.c	vim.h	create.md	super.c	link.c	add.c	test.c	lib.h
 Example:
 ```
 $ ./unixhell
-:) exit
+$ exit
 $
 ```
 
@@ -243,7 +243,7 @@ $
 Example:
 ```
 $ ./unixhell
-:) env
+$ env
 NVM_DIR=/home/vagrant/.nvm
 ...
 ```
@@ -256,10 +256,10 @@ NVM_DIR=/home/vagrant/.nvm
 Example:
 ```
 $ ./unixhell
-:) setenv NAME Philip
-:) echo $NAME
+$ setenv NAME Philip
+$ echo $NAME
 Philip
-:)
+$
 ```
 
 #### unsetenv
@@ -270,11 +270,11 @@ Philip
 Example:
 ```
 $ ./unixhell
-:) setenv NAME David
-:) unsetenv NAME
-:) echo $NAME
+$ setenv NAME David
+$ unsetenv NAME
+$ echo $NAME
 
-:)
+$
 ```
 
 ## Authors :ledger:
